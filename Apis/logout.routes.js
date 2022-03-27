@@ -5,7 +5,7 @@ const auth = require('../auth/auth')
 
 
 
-app.get("/logout" ,(req,res)=>{
+app.get("/logout" ,auth ,(req,res)=>{
     try {
         res.status(200).json({message : 'logout'})
     } catch (error) {
