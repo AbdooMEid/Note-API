@@ -15,7 +15,7 @@ app.post(
         const { name, email, password , confirmPassword} = req.body;
         const error = validationResult(req);
         if (!error.isEmpty()) {
-         return res.status(204).json({ message: error.array() });
+         return res.status(202).json({ message: error.array() });
         } else {
             const user = await userModel.findOne({email})
             if(user == null){
@@ -25,11 +25,11 @@ app.post(
                    res.status(200).json({user});
                  })
               }else{
-                res.status(205).json({message : 'confirm Password do not matche password'})
+                res.status(202).json({message : 'confirm Password do not matche password'})
               }
            
             }else{
-                return res.status(206).json({message : 'email is alerady exsist'})
+                return res.status(201).json({message : 'email is alerady exsist'})
             }
          
         }
