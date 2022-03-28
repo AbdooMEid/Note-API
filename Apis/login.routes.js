@@ -21,10 +21,10 @@ app.post("/login", async (req, res) => {
          const token =  JWT.sign({name : user.name , email : user.email , id : user._id} , 'abdoeid123')
          res.status(200).header({token}).json({ message : 'logedin' });
         } else {
-          res.status(400).json({ message: "Password In correct" });
+          res.status(201).json({ message: "Password In correct" });
         }
       } else {
-        res.status(400).json({ message: "User Not Found" });
+        res.status(202).json({ message: "User Not Found" });
       }
     } catch (error) {
       res.status(401).json(error);
