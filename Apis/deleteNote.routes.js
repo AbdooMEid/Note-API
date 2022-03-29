@@ -14,7 +14,7 @@ method : Delete
 
 
 
-app.delete('/deleteNote'  , async (req,res)=>{
+app.post('/deleteNote'  , async (req,res)=>{
     try {
         await noteModel.findByIdAndDelete({_id : req.body.delete})
         res.status(200).json({message : 'Deleted'})
