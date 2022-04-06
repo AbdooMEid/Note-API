@@ -11,11 +11,11 @@ method : POST
 */
 
 app.post('/addNote' ,auth , async(req,res)=>{
-    const {title , desc } = req.body
+    const {title , desc , Time} = req.body
     try {
        
-       await noteModel.insertMany({title , desc , userID : req.id})
-       res.status(200).json({message : 'Success'})
+       const note = await noteModel.insertMany({title , desc , userID : req.id , Time})
+       res.status(200).json({note})
        
     } catch (error) {
         res.status(400).json({error})
