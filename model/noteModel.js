@@ -6,7 +6,8 @@ const mongoose = require('mongoose')
 const noteSchema = mongoose.Schema({
     title:String,
     desc:String,
-    userID : {type:mongoose.Schema.Types.ObjectId}
+    userID : {type:mongoose.Schema.Types.ObjectId},
+    Time : {type : Number , required: true}
 })
 
 
