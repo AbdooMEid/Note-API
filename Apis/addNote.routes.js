@@ -18,7 +18,7 @@ app.post('/addNote' ,auth , async(req,res)=>{
             const note =  await noteModel.insertMany({title , desc , userID : req.id , Time})
             res.status(200).json(note)
         }else{
-            res.status(201).json('time is alerady')
+            res.status(201).json({'message' : 'time is repeted'})
         }
        
     } catch (error) {
