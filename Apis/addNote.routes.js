@@ -11,11 +11,15 @@ method : POST
 */
 
 app.post('/addNote' ,auth , async(req,res)=>{
-    const {title , desc , Time} = req.body
     try {
-       
-       const note = await noteModel.insertMany({title , desc , userID : req.id , Time})
-       res.status(200).json(note)
+       const {title , desc , Time} = req.body
+        const time = await noteModel.findOne({Time});
+        if(time === null){
+            const note =  await noteModel.insertMany({title , desc , userID : req.id , Time})
+            res.status(200).json(note)
+        }else{
+            res.status(201).json('time is alerady')
+        }
        
     } catch (error) {
         res.status(400).json({error})
