@@ -15,7 +15,7 @@ app.post('/addNote' ,auth , async(req,res)=>{
     try {
        
        const note = await noteModel.insertMany({title , desc , userID : req.id , Time})
-       res.status(200).json({note})
+       res.status(200).json(note)
        
     } catch (error) {
         res.status(400).json({error})
