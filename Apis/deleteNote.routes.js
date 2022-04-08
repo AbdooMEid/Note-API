@@ -16,8 +16,17 @@ method : Delete
 
 app.post('/deleteNote'  , async (req,res)=>{
     try {
-        await noteModel.findByIdAndDelete({_id : req.body.delete})
-        res.status(200).json({message : 'Deleted'})
+         const noteDelete = await noteModel.findOne({_id : req.body.delete})
+        if(noteDelete != null){
+            await noteModel.deleteOne({_id : req.body.delete})
+            res.status(200).json({message : 'Deleted'})
+        }else{
+            res.status(201).json({message : 'Not Found'}) 
+        }
+        
+    } catch (error) {
+        res.status(201).json({error})
+    }
     } catch (error) {
         res.status(201).json({error})
     }
