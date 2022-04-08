@@ -19,7 +19,7 @@ app.post('/deleteNote'  , async (req,res)=>{
         await noteModel.findByIdAndDelete({_id : req.body.delete})
         res.status(200).json({message : 'Deleted'})
     } catch (error) {
-        res.status(400).json({error})
+        res.status(201).json({error})
     }
 })
 
