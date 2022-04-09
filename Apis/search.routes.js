@@ -5,7 +5,7 @@ const auth = require('../auth/auth')
 
 app.post('/searchNote' ,async (req,res)=>{
     try {
-        const notes = await noteModel.findOne({_id : req.body.search})
+        const notes = await noteModel.findOne({_id : req.body.delete})
         if(notes != null){
             res.status(200).json({_id : notes._id})
         }else{
