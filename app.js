@@ -16,6 +16,8 @@ app.use('/api/v1', require('./Apis/addNote.routes'))
 app.use('/api/v1' , require('./Apis/getNote.routes'))
 app.use('/api/v1' , require('./Apis/deleteNote.routes'))
 app.use('/api/v1' , require('./Apis/edit.routes'))
+app.use('/api/v1' , require('./Apis/search.routes'))
+
 
 
 app.listen(process.env.PORT || port, () =>
