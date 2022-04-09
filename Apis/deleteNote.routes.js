@@ -12,11 +12,9 @@ method : Delete
 
 */
 
-
-
 app.post('/deleteNote'  , async (req,res)=>{
     try {
-         const noteDelete = await noteModel.findOne({_id : req.body.delete})
+        const noteDelete = await noteModel.findOne({_id : req.body.delete})
         if(noteDelete != null){
             await noteModel.deleteOne({_id : req.body.delete})
             res.status(200).json({message : 'Deleted'})
@@ -27,15 +25,7 @@ app.post('/deleteNote'  , async (req,res)=>{
     } catch (error) {
         res.status(201).json({error})
     }
-    } catch (error) {
-        res.status(201).json({error})
-    }
 })
-
-
-
-
-
 
 
 
